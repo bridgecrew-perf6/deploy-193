@@ -19,9 +19,4 @@ spec:
         image: vmahecha07/nodefront:latest
         ports:
         - containerPort: 3030
-        env:
-
-        - name: BACKEND_URL
-
-          value: "10.233.51.211:3000"
         
