@@ -14,6 +14,7 @@ pipeline {
                 sh 'rm -fr deploy'
                 git branch: 'develop', url: 'https://github.com/vmahecha/rp2.git'
                 sh 'pwd'
+                sh 'ls'
             }
         }
     }
