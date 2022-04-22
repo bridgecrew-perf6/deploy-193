@@ -16,5 +16,13 @@ pipeline {
                 sh 'pwd'
             }
         }
+        stage('test') {
+            steps {
+                sh '''
+                cd
+                cd deploy
+                '''
+            }
+        }
     }
 }
