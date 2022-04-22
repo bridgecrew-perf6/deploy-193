@@ -21,7 +21,10 @@ pipeline {
             steps{
                 sh "chmod +x -R ${env.WORKSPACE}"
                 sh'''
+                 chmod +rwx frontend
                  cd /var/lib/jenkins/workspace/cdpipeline/frontend
+                 chmod +x frontdeployment.yml
+                 chmod +x frontservice.yml
                  pwd
                  kubectl apply -f frontdeployment.yml
                  kubectl get deployments
