@@ -1,0 +1,20 @@
+pipeline {
+    agent any 
+    environment {
+        BUILD_NUMBER = 'LATEST'
+        registry = 'vmahecha07/nodefront'
+        registry2 = 'vmahecha07/nodeapp'
+        registryCredential = 'vmahecha07'
+        dockerImage = ''
+    }
+    stages {
+        stage('clone') {
+            steps {
+                echo 'clone the repo'
+                sh 'rm -fr deploy'
+                git branch: 'develop', url: 'https://github.com/vmahecha/rp2.git'
+                sh 'pwd'
+            }
+        }
+    }
+}

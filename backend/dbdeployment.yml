@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeappdb-deployment
+  labels:
+    app: nodedb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodedb
+  template:
+    metadata:
+      labels:
+        app: nodedb 
+    spec:
+      containers:
+      - name: nodedb
+        image: vmahecha07/nodedb:latest
+        ports:
+        - containerPort: 3000
