@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                cd frontend
+                cd ${WORKSPACE}//cdpipeline/frontend
                 '''
             }
         }
