@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                sudo kubectl get nodes
+                sudo kubectl get pods
                 '''
             }
         }
