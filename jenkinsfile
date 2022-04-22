@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'clone the repo'
                 sh 'rm -fr deploy'
+                sh 'rm -fr rp2'
                 git branch: 'develop', url: 'https://github.com/vmahecha/deploy.git'
                 sh 'pwd'
             }
@@ -19,7 +20,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                sudo ssh -i id_rsa2 azureuser@10.0.2.5
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f /var/lib/jenkins/workspace/cdpipeline/frontend/frontdeployment.yml'
                 '''
             }
         }
