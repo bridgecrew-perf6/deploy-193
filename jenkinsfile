@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                sudo kubectl get pods
+                sudo cd frontend
                 '''
             }
         }
