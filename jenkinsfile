@@ -10,26 +10,14 @@ pipeline {
     stages {
         stage('clone') {
             steps {
+                sh '''
+                cd
+                cd deploy
                 echo 'clone the repo'
                 sh 'rm -fr rp2'
                 git branch: 'main', url: 'https://github.com/vmahecha/deploy.git'
                 sh 'pwd'
                 sh 'ls'
-            }
-        }
-        stage('deploy'){
-            steps{
-                sh "chmod +x -R ${env.WORKSPACE}"
-                sh'''
-                 chmod +rwx frontend
-                 cd /var/lib/jenkins/workspace/cdpipeline/frontend
-                 chmod +x frontdeployment.yml
-                 chmod +x frontservice.yml
-                 pwd
-                 kubectl apply -f frontdeployment.yml
-                 kubectl get deployments
-                 kubectl apply -f frontservice.yml
-                 kubectl get svc
                 '''
             }
         }
