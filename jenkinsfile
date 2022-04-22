@@ -14,10 +14,10 @@ pipeline {
                 cd
                 cd deploy
                 echo 'clone the repo'
-                sh 'rm -fr rp2'
+                rm -fr rp2
                 git branch: 'main', url: 'https://github.com/vmahecha/deploy.git'
-                sh 'pwd'
-                sh 'ls'
+                pwd
+                ls
                 '''
             }
         }
