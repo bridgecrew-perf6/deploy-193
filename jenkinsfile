@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                ssh -i id_rsa2 azureuser@10.0.2.5
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5
                 '''
             }
         }
