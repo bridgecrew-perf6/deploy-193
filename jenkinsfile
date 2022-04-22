@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                sudo su
+                ssh 10.0.2.5 'kubectl get nodes' 
                 '''
             }
         }
