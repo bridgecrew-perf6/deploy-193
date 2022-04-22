@@ -12,9 +12,10 @@ pipeline {
             steps {
                 sh '''
                 cd
-                git branch: 'main', url: 'https://github.com/vmahecha/deploy.git'
-                cd deploy
-                echo 'clone the repo'
+                git clone 'https://github.com/vmahecha/deploy.git'
+                cd deploy/frontend
+                kubectl apply -f frontdeployment.yml
+                kubectl apply -f service.yml
                 pwd
                 ls
                 '''
