@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                cd /var/lib/jenkins/workspace/cdpipeline/frontend
+                cd frontend
                 '''
             }
         }
