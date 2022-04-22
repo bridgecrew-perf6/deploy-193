@@ -10,14 +10,18 @@ pipeline {
     stages {
         stage('clone') {
             steps {
+                echo 'clone the repo'
+                sh 'rm -fr deploy'
+                sh 'rm -fr rp2'
+                git branch: 'develop', url: 'https://github.com/vmahecha/deploy.git'
+                sh 'pwd'
+            }
+        }
+        stage('deploy') {
+            steps {
                 sh '''
-                cd
-                git clone 'https://github.com/vmahecha/deploy.git'
-                cd deploy/frontend
-                kubectl apply -f frontdeployment.yml
-                kubectl apply -f service.yml
-                pwd
-                ls
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f /home/azureuser/deploy/frontend/frontdeployment.yml'
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f /home/azureuser/deploy/frontend/frontservice.yml'                
                 '''
             }
         }
