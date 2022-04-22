@@ -12,10 +12,9 @@ pipeline {
             steps {
                 sh '''
                 cd
+                git branch: 'main', url: 'https://github.com/vmahecha/deploy.git'
                 cd deploy
                 echo 'clone the repo'
-                rm -fr rp2
-                git branch: 'main', url: 'https://github.com/vmahecha/deploy.git'
                 pwd
                 ls
                 '''
