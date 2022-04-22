@@ -1,3 +1,4 @@
+def BuilTag = Jenkins.instance.getItem('cipipeline').lastSuccessfulBuild.number
 pipeline {
     agent any 
     environment {
@@ -19,10 +20,11 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh '''
+                sh """
                 sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl delete deployment nodefront-deployment'
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'sed -i 's/nodefront:latest/nodefront:${BuildTag}/' /home/azureuser/deploy/frontend/frontdeployment.yml'                
                 sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f /home/azureuser/deploy/frontend/frontdeployment.yml'               
-                '''
+                """
             }
         }
     }
