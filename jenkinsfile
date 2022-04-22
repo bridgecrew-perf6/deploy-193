@@ -1,4 +1,4 @@
-def BuilTag = Jenkins.instance.getItem('cipipeline').lastSuccessfulBuild.number
+def BuildTag = Jenkins.instance.getItem('cipipeline').lastSuccessfulBuild.number
 pipeline {
     agent any 
     environment {
