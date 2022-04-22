@@ -19,7 +19,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                cd ${WORKSPACE}//cdpipeline/frontend
+                sudo ls
                 '''
             }
         }
