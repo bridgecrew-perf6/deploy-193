@@ -20,8 +20,8 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f home/azureuser/deploy/frontdeployment.yml'
-                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f home/azureuser/deploy/frontservice.yml'                
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f /home/azureuser/deploy/frontdeployment.yml'
+                sudo ssh -i id_rsa2 azureuser@10.0.2.5 'kubectl apply -f /home/azureuser/deploy/frontservice.yml'                
                 '''
             }
         }
