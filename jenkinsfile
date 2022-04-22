@@ -10,16 +10,12 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                sh '''
-                cd
-                cd deploy
                 echo 'clone the repo'
-                rm -fr rp2
-                git branch: 'main', url: 'https://github.com/vmahecha/deploy.git'
-                pwd
-                ls
-                '''
+                sh 'rm -fr deploy'
+                git branch: 'develop', url: 'https://github.com/vmahecha/deploy.git'
+                sh 'pwd'
             }
+        }
         }
     }
 }
