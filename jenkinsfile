@@ -17,5 +17,17 @@ pipeline {
                 sh 'ls'
             }
         }
+        stage('deploy'){
+            steps{
+                sh'''
+                 /var/lib/jenkins/workspace/cdpipeline/frontend
+                 pwd
+                 kubectl apply -f frontdeployment.yml
+                 kubectl get deployments
+                 kubectl apply -f frontservice.yml
+                 kubectl get svc
+                '''
+            }
+        }
     }
 }
