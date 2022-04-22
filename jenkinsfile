@@ -11,8 +11,8 @@ pipeline {
         stage('clone') {
             steps {
                 echo 'clone the repo'
-                sh 'rm -fr deploy'
-                git branch: 'develop', url: 'https://github.com/vmahecha/rp2.git'
+                sh 'rm -fr rp2'
+                git branch: 'develop', url: 'https://github.com/vmahecha/deploy.git'
                 sh 'pwd'
                 sh 'ls'
             }
